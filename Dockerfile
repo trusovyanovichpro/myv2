@@ -18,6 +18,7 @@ RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
  && chmod -R g+rwX /myv2bin \
  && mv /myv2bin/v2ray /myv2bin/myv2
  
+COPY config.json /myv2bin 
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh 
