@@ -10,12 +10,12 @@
         {
           "id": "b0b0f9d6-8bed-479e-b700-bc0d263ec615",
           "alterId": 64,
-          "security": "auto"
+          "security": "aes-128-gcm"
         }
       ]
     },
     "streamSettings": {
-      "network": "ws"
+      "network": "tcp"
     }
   },
   "inboundDetour": [],
