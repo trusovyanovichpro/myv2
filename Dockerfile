@@ -1,19 +1,15 @@
-FROM alpine:3.7
+FROM alpine:3.9
 
-ENV CONFIG_JSON=none CERT_PEM=none KEY_PEM=none VER=4.20.0
+ENV VER=4.20.0
 
 RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
  && mkdir -m 777 /myv2bin \ 
  && cd /myv2bin \
  && curl -L -H "Cache-Control: no-cache" -o myv2.zip https://github.com/v2ray/v2ray-core/releases/download/v$VER/v2ray-linux-64.zip \
  && unzip myv2.zip \
- && mv /myv2bin/v2ray-v$VER-linux-64/v2ray /myv2bin/ \
- && mv /myv2bin/v2ray-v$VER-linux-64/v2ctl /myv2bin/ \
- && mv /myv2bin/v2ray-v$VER-linux-64/geoip.dat /myv2bin/ \
- && mv /myv2bin/v2ray-v$VER-linux-64/geosite.dat /myv2bin/ \
  && chmod +x /myv2bin/v2ray \
- && rm -rf v2ray.zip \
- && rm -rf v2ray-v$VER-linux-64 \
+ && rm -rf myv2.zip \
+ && rm -rf config.json
  && chgrp -R 0 /myv2bin \
  && chmod -R g+rwX /myv2bin \
  && mv /myv2bin/v2ray /myv2bin/myv2
