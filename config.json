@@ -3,21 +3,21 @@
     "loglevel": "warning"
   },
   "inbound": {
-    "protocol": "vmess",
+    "protocol": "vless",
     "port": 8080,
     "settings": {
       "clients": [
         {
           "id": "b0b0f9d6-8bed-479e-b700-bc0d263ec615",
-          "alterId": 64,
-          "security": "aes-128-gcm"
+          "level": 0
         }
       ]
+      "decryption": "none",
     },
     "streamSettings": {
-      "network": "ws"
-    }
-  },
+      "network": "tcp",
+      "security": "tls",
+    },
   "inboundDetour": [],
   "outbound": {
     "protocol": "freedom",
